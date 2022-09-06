@@ -4,12 +4,9 @@ import "fmt"
 
 
 func main(){
-	var valance = [5]float32{100.0, 2.0, 3.7, 7.0, 50.0}
-	fmt.Println(valance)
-	balance := [5]float32{110.0,2.0,50.0}
-	fmt.Println(balance)
-	balance2:=[...]float32{100.0, 2.0,3.7,7.0,50.0}
-	fmt.Println(balance2)
-	var valance1 = [5]float32{1:2.0, 3:7.0}
-	fmt.Println(valance1)
+	// go中数组地址代表整一个数组，并非c中头节点指针，所以赋值传递数组时通常只使用指针，减小开销
+	var a = [...]int{1,2,3}
+	var b = &a
+
+	for i,v := range b { fmt.Println(i,v) }
 }
