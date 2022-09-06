@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 func main(){
-	a := -1
-	fmt.Println(a);
+	var x, y int
+	var c, d int = 1, 2
+	g, h := 123, "hello"
 }
