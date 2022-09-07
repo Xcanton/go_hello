@@ -3,15 +3,13 @@ package main
 import "fmt"
 
 
-type Books struct {
-	title string
-	author string
-}
-
 func main(){
-	var book1 Books
-	book1.title = "Go 语言入门"
-	book1.author = "mars.hao"
-	fmt.Println(book1)
-	fmt.Println(book1.title)
+	var a []int
+	fmt.Println(a)
+	a = append(a, 1)
+	fmt.Print(a)
+	a = append(a, 1,2,3)
+	fmt.Println(a)
+	a = append(a, []int{1,2,3}...)
+	fmt.Println(a)
 }
