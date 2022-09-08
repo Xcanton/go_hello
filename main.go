@@ -2,9 +2,13 @@ package main
 
 import "fmt"
 
+
+func GetData() (int, int) {
+	return 10, 20
+}
+
 func main(){
-	var(
-		a int
-		b bool
-	)
+	a, _ := GetData()
+	_, b := GetData()
+	fmt.Println(a,b)
 }
