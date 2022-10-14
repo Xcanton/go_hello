@@ -6,10 +6,11 @@ import (
 	"log"
 )
 
+// Movie /** 只有可导出的成员变量才会被序列化到json里面，所以里面的项全部Capital Letter */
 type Movie struct {
 	Title  string
-	Year   int  `json:"released"`        // 成员标签
-	Color  bool `json:"color,omitempty"` // 成员标签
+	Year   int  `json:"released"`        // 成员标签: 指定Json中字段名称为 released
+	Color  bool `json:"color,omitempty"` // 成员标签： 指定Json中字段名称为color， 且 omitempty 忽略0值或空值
 	Actors []string
 }
 
@@ -34,4 +35,10 @@ func main() {
 	}
 	fmt.Println("Json MarshalIndent function output is : ")
 	fmt.Printf("%s\n", data)
+
+	var titles []struct{ Title string }
+	if err := json.Unmarshal(data, &titles); err != nil {
+		log.Fatalf("JSON Unmarshaling failed: %s", err)
+	}
+	fmt.Println(titles) // [{Casablanca} {Cool Hand Luke} {Bullitt}]
 }
